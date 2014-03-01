@@ -9,14 +9,19 @@ char key[1024];
 
 int main(int argc, char* argv[])
 {
-	for (int i = 0; i < 100; i++) {
+	int print_threshold = 10000, threshold_interval = 10000;
+
+	for (int i = 0; i < 300000; i++) {
 		if (is_prime(i)) {
-			printf("%d ", i);
+			if (i > print_threshold) {
+				printf("%d\n", i);
+				print_threshold += threshold_interval;
+			}
 		}
 	}
 
-	printf("Press Enter to continue\n");
-	getchar();
+//	printf("Press Enter to continue\n");
+//	getchar();
 	return 0;
 }
 
