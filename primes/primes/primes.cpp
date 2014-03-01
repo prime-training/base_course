@@ -1,7 +1,7 @@
 // primes.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+#include <stdio.h>
 
 bool is_prime(int);
 
@@ -15,12 +15,17 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	printf("Press a key to continue.");
-	scanf_s("%s", key);
+	printf("Press Enter to continue\n");
+	getchar();
 	return 0;
 }
 
 bool is_prime(int n)
 {
-	return n % 2 == 0;
+	for (int i = 2; i < n; ++i) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
 }
