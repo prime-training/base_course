@@ -1,6 +1,8 @@
 // primes.cpp : Defines the entry point for the console application.
 //
 
+// simplest method results:  13848 --    149993:      987369615
+
 #include <stdio.h>
 
 typedef __int64 int64;
@@ -59,9 +61,11 @@ int main(int argc, char* argv[])
       count = count + 1;
 
       // Print, but only some of them
-      if (i > print_threshold) {
+      if (i > print_threshold || i < 1000) {
         printf("%7d -- %9d:  %13I64d\n", count, i, num_ops);
-        print_threshold += threshold_interval;
+        if (i > print_threshold) {
+          print_threshold += threshold_interval;
+        }
       }
     }
 
