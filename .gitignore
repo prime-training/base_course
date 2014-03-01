@@ -3,7 +3,6 @@
 *.lo
 *.o
 *.obj
-*.sdf
 *.opensdf
 
 # Compiled Dynamic libraries
