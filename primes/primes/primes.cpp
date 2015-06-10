@@ -2,8 +2,10 @@
 //
 
 // simplest method results:  13848 --    149993:      987369615
+// 493640385
 
 #include <stdio.h>
+#include <math.h>
 
 typedef __int64 int64;
 
@@ -14,20 +16,29 @@ typedef __int64 int64;
 int64 num_ops = 0;
 
 // Is the number a prime?
-bool is_prime(int n)
+bool is_prime(int test_number)
 {
   // Look at all the numbers between 2 and n
-  int i = 2;
-  while (i < n) {
+  int i;
+  if (test_number == 2) {
+    return true;
+  }
+
+  if (test_number % 2 == 0) {
+    return false;
+  }
+
+  i = 3;
+  while (i < (int)sqrt((float)test_number)) {
 
     // If it devides evenly, it is not a prime '%' means remainder
     num_ops++;
-    if (n % i == 0) {
+    if (test_number % i == 0) {
       return false;
     }
 
     // Look at the next number
-    i++;
+    i = i + 2;
   }
 
   // If we get here, the number cannot be divided by any of the numbers
