@@ -12,16 +12,18 @@ int main(int argc, char* argv[])
     end = atoi(argv[1]);
   }
 
-  printf("Computing primes 2 - %d\n", end);
+  //printf("Computing primes 2 - %d\n", end);
 
+  int final_prime = 2;
   int count = 0;
   for (int x = 2; x <= end; ++x) {
     if (is_prime(x)) {
       count += 1;
-
-      printf("prime %6d: %10d\n", count, x);
+      final_prime = x;
     }
   }
+
+  printf("prime %6d: %10d\n", count, final_prime);
 }
 
 bool is_prime(int x)
